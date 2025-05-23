@@ -1,0 +1,413 @@
+/* LiveEdit Extension Styles */
+
+/* Reset for extension elements */
+.live-edit-overlay,
+.live-edit-overlay * {
+  box-sizing: border-box !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  font: inherit !important;
+  line-height: 1.4 !important;
+  text-align: left !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+  word-spacing: normal !important;
+  vertical-align: baseline !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Editable element highlighting */
+.live-edit-editable {
+  outline: 2px solid #0066ff !important;
+  outline-offset: 1px !important;
+  cursor: pointer !important;
+  transition: outline-color 0.2s ease !important;
+}
+
+.live-edit-editable:hover {
+  outline-color: #004499 !important;
+  outline-width: 3px !important;
+}
+
+.live-edit-active {
+  outline: 3px solid #0066ff !important;
+  outline-offset: 2px !important;
+  background-color: rgba(0, 102, 255, 0.05) !important;
+}
+
+.live-edit-modified {
+  outline: 2px solid #00aa00 !important;
+  outline-offset: 1px !important;
+  position: relative !important;
+}
+
+.live-edit-modified::after {
+  content: '✓' !important;
+  position: absolute !important;
+  top: -8px !important;
+  right: -8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  background: #00aa00 !important;
+  color: white !important;
+  border-radius: 50% !important;
+  font-size: 10px !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999998 !important;
+}
+
+/* Main overlay container */
+.live-edit-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 9999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 14px !important;
+  color: #333 !important;
+}
+
+/* Editor panel */
+.live-edit-editor {
+  position: absolute !important;
+  background: white !important;
+  border: 2px solid #0066ff !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+  padding: 16px !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  pointer-events: auto !important;
+  z-index: 10000000 !important;
+}
+
+.live-edit-editor.dragging {
+  cursor: move !important;
+  opacity: 0.9 !important;
+}
+
+/* Editor header */
+.live-edit-editor-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 12px !important;
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #eee !important;
+}
+
+.live-edit-editor-title {
+  font-weight: 600 !important;
+  color: #0066ff !important;
+  font-size: 14px !important;
+}
+
+.live-edit-drag-handle {
+  cursor: move !important;
+  color: #666 !important;
+  font-size: 16px !important;
+  padding: 4px !important;
+}
+
+.live-edit-close-btn {
+  background: #f0f0f0 !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  width: 24px !important;
+  height: 24px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  color: #666 !important;
+  line-height: 1 !important;
+}
+
+.live-edit-close-btn:hover {
+  background: #e0e0e0 !important;
+  color: #333 !important;
+}
+
+/* Editor content */
+.live-edit-editor-content {
+  margin-bottom: 12px !important;
+}
+
+.live-edit-input {
+  width: 100% !important;
+  padding: 8px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  font-family: inherit !important;
+  resize: vertical !important;
+  min-height: 60px !important;
+}
+
+.live-edit-input:focus {
+  outline: none !important;
+  border-color: #0066ff !important;
+  box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.2) !important;
+}
+
+.live-edit-url-input {
+  min-height: 36px !important;
+}
+
+/* Image editor specific */
+.live-edit-image-preview {
+  margin: 8px 0 !important;
+  text-align: center !important;
+}
+
+.live-edit-image-preview img {
+  max-width: 100% !important;
+  max-height: 100px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+}
+
+.live-edit-image-controls {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 8px !important;
+  margin: 8px 0 !important;
+}
+
+.live-edit-size-input {
+  padding: 4px 8px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  text-align: center !important;
+}
+
+/* File upload */
+.live-edit-file-input {
+  width: 100% !important;
+  padding: 8px !important;
+  border: 2px dashed #ddd !important;
+  border-radius: 4px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  background: #f9f9f9 !important;
+  transition: all 0.2s ease !important;
+}
+
+.live-edit-file-input:hover {
+  border-color: #0066ff !important;
+  background: #f0f4ff !important;
+}
+
+.live-edit-file-input input[type="file"] {
+  display: none !important;
+}
+
+/* Character counter */
+.live-edit-char-counter {
+  font-size: 12px !important;
+  color: #666 !important;
+  text-align: right !important;
+  margin-top: 4px !important;
+}
+
+.live-edit-char-counter.warning {
+  color: #ff6600 !important;
+}
+
+.live-edit-char-counter.error {
+  color: #dd0000 !important;
+}
+
+/* Editor actions */
+.live-edit-actions {
+  display: flex !important;
+  gap: 8px !important;
+  justify-content: flex-end !important;
+}
+
+.live-edit-btn {
+  padding: 8px 16px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 4px !important;
+  background: white !important;
+  cursor: pointer !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.live-edit-btn:hover {
+  border-color: #bbb !important;
+  background: #f5f5f5 !important;
+}
+
+.live-edit-btn-primary {
+  background: #0066ff !important;
+  color: white !important;
+  border-color: #0066ff !important;
+}
+
+.live-edit-btn-primary:hover {
+  background: #0052cc !important;
+  border-color: #0052cc !important;
+}
+
+.live-edit-btn-success {
+  background: #00aa00 !important;
+  color: white !important;
+  border-color: #00aa00 !important;
+}
+
+.live-edit-btn-success:hover {
+  background: #008800 !important;
+  border-color: #008800 !important;
+}
+
+.live-edit-btn-danger {
+  background: #dd0000 !important;
+  color: white !important;
+  border-color: #dd0000 !important;
+}
+
+.live-edit-btn-danger:hover {
+  background: #bb0000 !important;
+  border-color: #bb0000 !important;
+}
+
+/* Loading state */
+.live-edit-loading {
+  opacity: 0.6 !important;
+  pointer-events: none !important;
+}
+
+.live-edit-loading::after {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  width: 20px !important;
+  height: 20px !important;
+  margin: -10px 0 0 -10px !important;
+  border: 2px solid #f3f3f3 !important;
+  border-top: 2px solid #0066ff !important;
+  border-radius: 50% !important;
+  animation: live-edit-spin 1s linear infinite !important;
+}
+
+@keyframes live-edit-spin {
+  0% { transform: rotate(0deg) !important; }
+  100% { transform: rotate(360deg) !important; }
+}
+
+/* Error message */
+.live-edit-error {
+  background: #ffebee !important;
+  color: #c62828 !important;
+  padding: 8px !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  margin: 8px 0 !important;
+  border: 1px solid #ffcdd2 !important;
+}
+
+/* Toast notifications */
+.live-edit-toast {
+  position: fixed !important;
+  top: 20px !important;
+  right: 20px !important;
+  background: #333 !important;
+  color: white !important;
+  padding: 12px 16px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  z-index: 10000001 !important;
+  pointer-events: auto !important;
+  opacity: 0 !important;
+  transform: translateX(100%) !important;
+  transition: all 0.3s ease !important;
+}
+
+.live-edit-toast.show {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.live-edit-toast.success {
+  background: #4caf50 !important;
+}
+
+.live-edit-toast.error {
+  background: #f44336 !important;
+}
+
+.live-edit-toast.warning {
+  background: #ff9800 !important;
+}
+
+/* Backdrop */
+.live-edit-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.1) !important;
+  z-index: 9999998 !important;
+  pointer-events: auto !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .live-edit-editor {
+    min-width: 280px !important;
+    max-width: calc(100vw - 40px) !important;
+    font-size: 13px !important;
+  }
+  
+  .live-edit-actions {
+    flex-direction: column !important;
+  }
+  
+  .live-edit-btn {
+    width: 100% !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .live-edit-editable {
+    outline-width: 3px !important;
+  }
+  
+  .live-edit-editor {
+    border-width: 3px !important;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .live-edit-overlay,
+  .live-edit-overlay * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
