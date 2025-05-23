@@ -1,0 +1,54 @@
+{
+  "name": "liveedit-chrome-extension",
+  "version": "1.0.0",
+  "description": "A powerful Chrome extension for real-time website editing",
+  "scripts": {
+    "dev": "echo 'Load extension in Chrome from chrome://extensions/ in developer mode'",
+    "build": "echo 'No build process needed - extension uses vanilla JS'",
+    "test": "echo 'Manual testing required - see README.md'",
+    "validate": "node scripts/validate-manifest.js",
+    "zip": "node scripts/create-zip.js",
+    "clean": "node scripts/clean.js"
+  },
+  "keywords": [
+    "chrome-extension",
+    "website-editor",
+    "content-editing",
+    "real-time-editing",
+    "web-development"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/galshaya/liveedit-chrome-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/galshaya/liveedit-chrome-extension/issues"
+  },
+  "homepage": "https://github.com/galshaya/liveedit-chrome-extension#readme",
+  "devDependencies": {
+    "archiver": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "files": [
+    "manifest.json",
+    "popup/",
+    "content/",
+    "background/",
+    "utils/",
+    "icons/",
+    "README.md"
+  ],
+  "chromiumExtension": {
+    "minimumVersion": "88",
+    "manifestVersion": 3,
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting"
+    ]
+  }
+}
